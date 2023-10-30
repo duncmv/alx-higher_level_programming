@@ -10,7 +10,7 @@ int check_cycle(listint_t *list)
 
 	for (temp = list; temp != NULL; temp = temp->next)
 	{
-		for (check = list; check != NULL; check = check->next)
+		for (check = list; check != temp; check = check->next)
 		{
 			if (temp->next == check)
 				return (1);
