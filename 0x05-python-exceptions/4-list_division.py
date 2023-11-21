@@ -9,7 +9,7 @@ def list_division(my_list_1, my_list_2, list_length):
             print("wrong type")
             x = 1
         except ZeroDivisionError:
-            print("division by zero")
+            print("division by 0")
             x = 1
         except IndexError:
             print("out of range")
