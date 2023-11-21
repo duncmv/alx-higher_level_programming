@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+"""
+This is the "Square"  module.
+
+This module provides a simple Square class.
+"""
+
 class Square:
-    """This a class Square"""
-    def __init__(self, size) -> None:
-        """
-        Args:
-            size: size of square
-        """
-        self.__size = size  #: size of square
+    """This a class that defines a Square by size"""
+    def __init__(self, size):
+        self.__size = size 
