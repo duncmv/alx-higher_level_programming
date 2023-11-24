@@ -1,0 +1,34 @@
+``add integer module``
+First import from the module as add_integer
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+Now use it:
+    >>> add_integer(2,2)
+    4
+
+    >>> add_integer(100.7, 26)
+    126
+
+    >>> add_integer("School", 1)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer({1: "yo"}, 0)
+    Traceback (most recent call last):
+	    ...
+    TypeError: a must be an integer
+    
+    >>> add_integer(0, {1: "yo"})
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+    >>> add_integer(2)
+    100
+
+	>>> add_integer(-2, -96)
+	-98
+
+	>>> add_integer(100, -2)
+	98

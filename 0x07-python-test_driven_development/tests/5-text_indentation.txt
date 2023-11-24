@@ -1,0 +1,17 @@
+The ``text indent module``
+
+First import the func
+
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Now use it:    
+    
+    >>> text_indentation("This is a simple example. It has multiple sentences")
+    This is a simple example.
+    <BLANKLINE>
+    It has multiple sentences
+    >>> text_indentation("Another example: what do you think?")
+    Another example:
+    <BLANKLINE>
+    what do you think?
+    <BLANKLINE>
