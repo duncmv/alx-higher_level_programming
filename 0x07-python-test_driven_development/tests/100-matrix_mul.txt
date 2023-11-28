@@ -1,0 +1,41 @@
+The ``matrix_mul`` module
+
+First import ``matrix_mul`` from the ``matrix_mul`` module:
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Now use it:
+    This Function multiplies two matrices after validating.
+
+    >>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+    [[13, 16]]
+    >>> matrix_mul([[1, 2, 3]], [[4], [5], [6]])
+    [[32]]
+    >>> matrix_mul([[1, 2]], "not a matrix")
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list
+    >>> matrix_mul([[1, 2], [3, 4]], [[5, 6]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a and m_b can't be multiplied
+    >>> matrix_mul([[1, '2']], [[3], [4]])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a should contain only integers or floats
+    >>> matrix_mul([[1, 2], [3, 4, 5]], [[5, 6], [7, 8]])
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size
+    >>> matrix_mul([], [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+    >>> matrix_mul([[1, 2]], [[], []])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_b can't be empty
+    >>> matrix_mul([[1, 2]], ["sa"])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list of lists
