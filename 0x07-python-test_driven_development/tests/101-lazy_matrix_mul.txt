@@ -1,0 +1,44 @@
+The ``lazy_matrix_mul`` module
+
+First import ``lazy_matrix_mul`` from the ``lazy_matrix_mul`` module:
+
+    >>> matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+Now use it:
+
+    Multiplies two matrices using NumPy.
+
+    >>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+    array([[13, 16]])
+    >>> lazy_matrix_mul([[1, 2, 3]], [[4], [5], [6]])
+    array([[32]])
+    >>> lazy_matrix_mul([[1, 2]], "not a matrix")
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a numpy array
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[5, 6]])
+    Traceback (most recent call last):
+        ...
+    ValueError: shapes (2,2) and (1,2) not aligned: 2 (dim 1) != 1 (dim 0)
+    >>> lazy_matrix_mul([[1, '2']], [[3], [4]])
+    Traceback (most recent call last):
+        ...
+    ValueError: setting an array element with a sequence.
+    >>> lazy_matrix_mul([[1, 2], [3, 4, 5]], [[5, 6], [7, 8]])
+    Traceback (most recent call last):
+        ...
+    ValueError: setting an array element with a sequence.
+    >>> lazy_matrix_mul([], [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+        ...
+    ValueError: setting an array element with a sequence.
+    >>> lazy_matrix_mul([[1, 2]], [[], []])
+    Traceback (most recent call last):
+        ...
+    ValueError: setting an array element with a sequence.
+    >>> lazy_matrix_mul([1, 2], [[3, 4], [5, 6]])
+    Traceback (most recent call last):
+        ...
+    ValueError: setting an array element with a sequence.
+
+       
