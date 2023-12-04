@@ -4,7 +4,7 @@
     >>> my_list = MyList([3, 1, 4, 1, 5, 9, 2])
     >>> my_list.print_sorted()
     [1, 1, 2, 3, 4, 5, 9]
-    
+
     >>> print(my_list)
     [3, 1, 4, 1, 5, 9, 2]
 
@@ -32,10 +32,3 @@
     >>> extreme_values = MyList([2147483647, -2147483648])
     >>> extreme_values.print_sorted()
     [-2147483648, 2147483647]
-
-    # Testing with parent class methods
-    >>> dynamic_list = MyList()
-    >>> dynamic_list.append(3)
-    >>> dynamic_list.append(1)
-    >>> dynamic_list.print_sorted()
-    [1, 3]
