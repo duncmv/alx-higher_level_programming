@@ -1,41 +1,41 @@
 ``MyList class``
 
->>> MyList = __import__('1-my_list').MyList
->>> my_list = MyList([3, 1, 4, 1, 5, 9, 2])
->>> my_list.print_sorted()
-[1, 1, 2, 3, 4, 5, 9]
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList([3, 1, 4, 1, 5, 9, 2])
+    >>> my_list.print_sorted()
+    [1, 1, 2, 3, 4, 5, 9]
+    
+    >>> print(my_list)
+    [3, 1, 4, 1, 5, 9, 2]
 
->>> print(my_list)
-[3, 1, 4, 1, 5, 9, 2]
+    >>> empty_list = MyList()
+    >>> empty_list.print_sorted()
+    []
 
->>> empty_list = MyList()
->>> empty_list.print_sorted()
-[]
+    >>> single_element_list = MyList([42])
+    >>> single_element_list.print_sorted()
+    [42]
 
->>> single_element_list = MyList([42])
->>> single_element_list.print_sorted()
-[42]
+    >>> identical_elements = MyList([7, 7, 7])
+    >>> identical_elements.print_sorted()
+    [7, 7, 7]
 
->>> identical_elements = MyList([7, 7, 7])
->>> identical_elements.print_sorted()
-[7, 7, 7]
+    # Edge cases
+    >>> negative_numbers = MyList([-3, -1, -4, -2])
+    >>> negative_numbers.print_sorted()
+    [-4, -3, -2, -1]
 
-# Edge cases
->>> negative_numbers = MyList([-3, -1, -4, -2])
->>> negative_numbers.print_sorted()
-[-4, -3, -2, -1]
+    >>> mixed_numbers = MyList([3, -2, 5, -1])
+    >>> mixed_numbers.print_sorted()
+    [-2, -1, 3, 5]
 
->>> mixed_numbers = MyList([3, -2, 5, -1])
->>> mixed_numbers.print_sorted()
-[-2, -1, 3, 5]
+    >>> extreme_values = MyList([2147483647, -2147483648])
+    >>> extreme_values.print_sorted()
+    [-2147483648, 2147483647]
 
->>> extreme_values = MyList([2147483647, -2147483648])
->>> extreme_values.print_sorted()
-[-2147483648, 2147483647]
-
-# Testing with parent class methods
->>> dynamic_list = MyList()
->>> dynamic_list.append(3)
->>> dynamic_list.append(1)
->>> dynamic_list.print_sorted()
-[1, 3]
+    # Testing with parent class methods
+    >>> dynamic_list = MyList()
+    >>> dynamic_list.append(3)
+    >>> dynamic_list.append(1)
+    >>> dynamic_list.print_sorted()
+    [1, 3]
