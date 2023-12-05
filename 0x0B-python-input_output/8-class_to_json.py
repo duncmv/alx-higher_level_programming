@@ -3,6 +3,7 @@
 for JSON serialization of an object
 """
 
+
 def class_to_json(obj):
     """returns a dict"""
     return vars(obj)
