@@ -58,6 +58,30 @@ class Base:
                 lis = Base.from_json_string(f.read())
                 for i in lis:
                     insts.append(cls.create(**i))
-            return insts
-        else:
-            return insts
+        return insts
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        with open(f"{cls.__name__}.csv", "w", encoding="utf-8") as f:
+            for i in list_objs:
+                csv_str = f"{i.id},"
+                if cls.__name__ == "Rectangle":
+                    csv_str += f"{i.width},{i.height},"
+                elif cls.__name__ == "Square":
+                    csv_str += f"{i.size},"
+                csv_str += f"{i.x},{i.y}\n"
+                f.write(csv_str)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        insts = []
+        if os.path.isfile(f"{cls.__name__}.csv"):
+            with open(f"{cls.__name__}.csv", "r", encoding="utf-8") as f:
+                for line in f:
+                    if cls.__name__ == "Rectangle":
+                        id, width, height, x, y = map(int, list(line.split(",")))
+                        insts.append(cls(width, height, x, y, id))
+                    elif cls.__name__ == "Square":
+                        id, size, x, y = map(int, list(line.split(",")))
+                        insts.append(cls(size, x, y, id))
+        return insts

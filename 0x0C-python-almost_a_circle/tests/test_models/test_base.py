@@ -61,6 +61,54 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(squares[0], Square)
         self.assertIsInstance(squares[1], Square)
 
+    def test_save_to_file_csv_rectangle(self):
+        rect1 = Rectangle(10, 7, 2, 8, 1)
+        rect2 = Rectangle(2, 4, 0, 0, 2)
+        Rectangle.save_to_file_csv([rect1, rect2])
+        self.assertTrue(os.path.isfile('Rectangle.csv'))
+
+        with open('Rectangle.csv', 'r') as file:
+            content = file.read().strip().split("\n")
+            self.assertEqual(content[0], "1,10,7,2,8")
+            self.assertEqual(content[1], "2,2,4,0,0")
+
+    def test_save_to_file_csv_square(self):
+        square1 = Square(5, 1, 2, 1)
+        square2 = Square(7, 2, 3, 2)
+        Square.save_to_file_csv([square1, square2])
+        self.assertTrue(os.path.isfile('Square.csv'))
+
+        with open('Square.csv', 'r') as file:
+            content = file.read().strip().split("\n")
+            self.assertEqual(content[0], "1,5,1,2")
+            self.assertEqual(content[1], "2,7,2,3")
+
+    def test_load_from_file_csv_rectangle(self):
+        Rectangle.save_to_file_csv([Rectangle(10, 7, 2, 8, 1), Rectangle(2, 4, 0, 0, 2)])
+        rects = Rectangle.load_from_file_csv()
+        self.assertEqual(len(rects), 2)
+        self.assertIsInstance(rects[0], Rectangle)
+        self.assertEqual(rects[0].width, 10)
+        self.assertEqual(rects[0].height, 7)
+
+    def test_load_from_file_csv_square(self):
+        Square.save_to_file_csv([Square(5, 1, 2, 1), Square(7, 2, 3, 2)])
+        squares = Square.load_from_file_csv()
+        self.assertEqual(len(squares), 2)
+        self.assertIsInstance(squares[0], Square)
+        self.assertEqual(squares[0].size, 5)
+
+    @classmethod
+    def tearDownClass(cls):
+        """Cleanup files created during tests"""
+        if os.path.exists("Rectangle.csv"):
+            os.remove("Rectangle.csv")
+        if os.path.exists("Square.csv"):
+            os.remove("Square.csv")
+        if os.path.exists("Rectangle.json"):
+            os.remove("Rectangle.json")
+        if os.path.exists("Square.json"):
+            os.remove("Square.json")
 
 if __name__ == '__main__':
     unittest.main()
