@@ -13,17 +13,21 @@ class Square(Rectangle):
         update - updates attributes using args or kwargs
     """
     def __init__(self, size, x=0, y=0, id=None):
+        """initializes the object"""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
+        """returns str representation of the object"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property
     def size(self):
+        """getter for size"""
         return self._Rectangle__width
 
     @size.setter
     def size(self, value):
+        """setter for size"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -32,6 +36,7 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
+        """update the object using args and kwargs"""
         if args is None or len(args) == 0:
             for key, value in kwargs.items():
                 setattr(self, key, value)
