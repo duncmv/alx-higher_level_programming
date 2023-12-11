@@ -84,7 +84,8 @@ class TestBase(unittest.TestCase):
             self.assertEqual(content[1], "2,7,2,3")
 
     def test_load_from_file_csv_rectangle(self):
-        Rectangle.save_to_file_csv([Rectangle(10, 7, 2, 8, 1), Rectangle(2, 4, 0, 0, 2)])
+        Rectangle.save_to_file_csv([Rectangle(10, 7, 2, 8, 1),
+                                    Rectangle(2, 4, 0, 0, 2)])
         rects = Rectangle.load_from_file_csv()
         self.assertEqual(len(rects), 2)
         self.assertIsInstance(rects[0], Rectangle)
@@ -109,6 +110,7 @@ class TestBase(unittest.TestCase):
             os.remove("Rectangle.json")
         if os.path.exists("Square.json"):
             os.remove("Square.json")
+
 
 if __name__ == '__main__':
     unittest.main()
