@@ -9,6 +9,7 @@ import sys
 
 
 class TestSquare(unittest.TestCase):
+    """test class for square"""
 
     # Initialization tests
     def test_initialization_valid(self):

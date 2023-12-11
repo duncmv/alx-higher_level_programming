@@ -9,6 +9,7 @@ import sys
 
 
 class TestRectangle(unittest.TestCase):
+    """test class for rectangle"""
 
     # Initialization tests
     def test_initialization_valid(self):
