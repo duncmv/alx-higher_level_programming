@@ -1,11 +1,10 @@
 #!/usr/bin/node
-let maxx;
+let maxx = Number.MIN_SAFE_INTEGER;
 
 if (process.argv.length < 4) {
   console.log(0);
 } else {
   let max = parseInt(process.argv[2]);
-  maxx = parseInt(process.argv[3]);
   for (let i = 3; i < process.argv.length; i++) {
     const n = parseInt(process.argv[i]);
     if (n > max) {
@@ -15,5 +14,5 @@ if (process.argv.length < 4) {
       maxx = n;
     }
   }
+  console.log(maxx);
 }
-console.log(maxx);
