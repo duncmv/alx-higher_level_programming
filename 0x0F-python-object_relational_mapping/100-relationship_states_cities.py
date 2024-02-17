@@ -13,9 +13,7 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     session = Session(engine)
-    cali = State(name="California") 
-    citi =City(name="San Fancisco", state_id=cali.id)
-    
+    cali = State(name="California", cities=[City(name="San Fancisco")])
     session.add(cali)
     session.commit()
     session.close()
