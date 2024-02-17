@@ -17,11 +17,8 @@ if __name__ == "__main__":
                 WHERE states.name = %s"""
     name = (argv[4],)
     cur.execute(query, name)
-    rows = cur.fetchall()
-    for i in range(len(rows)):
-        if i != len(rows) - 1:
-            print(f"{rows[i][0]}, ", end="")
-        else:
-            print(f"{rows[i][0]}")
+    cities = cur.fetchall()
+    cities = [city for element in cities for city in element]
+    print(", ".join(cities))
     cur.close()
     db.close()
