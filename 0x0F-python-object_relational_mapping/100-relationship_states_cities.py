@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     session = Session(engine)
     cali = State(name="California")
-    cali.cities = [City(name="San Fancisco")]
+    cali.cities.append(City(name="San Fancisco"))
     session.add(cali)
     session.commit()
     session.close()
