@@ -18,4 +18,4 @@ class State(Base):
                 autoincrement='auto', primary_key=True)
     name = Column('name', String(128), nullable=False)
     cities = relationship("City", backref="state",
-                          cascade="all, delete-orphan")
+                          cascade="all,delete")

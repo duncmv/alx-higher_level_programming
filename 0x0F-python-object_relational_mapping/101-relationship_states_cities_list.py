@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Creates a state with related citiesusing SQLAlchemy
+"""List all states and cities using SQLAlchemy
 """
 if __name__ == "__main__":
     import sys
@@ -13,8 +13,9 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     session = Session(engine)
-    cali = State(name="California")
-    cali.cities = [City(name="San Fancisco")]
-    session.add(cali)
-    session.commit()
+    for state in session.query(State).order_by(State.id).all():
+        print(f"{state.id}: {state.name}")
+        for city in state.cities:
+            print(f"\t{city.id}: {city.name}")
+
     session.close()
