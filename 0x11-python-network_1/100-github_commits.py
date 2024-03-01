@@ -9,5 +9,6 @@ if __name__ == "__main__":
     resp = requests.get(url)
     commits = resp.json()
     for i in range(10):
-        com = commits[i]
-        print(f'{com["sha"]}: {com["commit"]["author"]["name"]}')
+        if i < len(commits):
+            com = commits[i]
+            print(f'{com["sha"]}: {com["commit"]["author"]["name"]}')
