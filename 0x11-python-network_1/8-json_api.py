@@ -11,10 +11,10 @@ if __name__ == "__main__":
     else:
         data = {'q': ""}
 
-    resp = requests.post('http://0.0.0.0:5000/search_user', data=data)
+    resp = requests.post('http://0.0.0.0:5000/search_user', params=data)
     try:
         data = resp.json()
-        print(f"[{data[0].id}] {data[0].name}")
+        print(f"[{data['id']}] {data['name']}")
     except requests.exceptions.JSONDecodeError:
         if resp.status_code == 204:
             print('No result')
