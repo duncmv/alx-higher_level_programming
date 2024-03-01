@@ -2,9 +2,12 @@
 """cript that takes in a URL and an email, sends a  POST request to the URL
 displays the body of response"""
 import urllib.request
+import urllib.parse
 import sys
 
 
 if __name__ == "__main__":
-    with urllib.request.urlopen(sys.argv[1], data=sys.argv[2]) as resp:
+    data = {'email' : sys.argv[2]}
+    data = urllib.parse.urlencode(data)
+    with urllib.request.urlopen(sys.argv[1], data=data) as resp:
         print(resp.read())
