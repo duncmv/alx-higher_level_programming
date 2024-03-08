@@ -7,16 +7,16 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        data = {'q': sys.argv[1]}
+        payload = {'q': sys.argv[1]}
     else:
-        data = {'q': ""}
+        payload = {'q': ""}
 
-    resp = requests.post('http://0.0.0.0:5000/search_user', params=data)
+    resp = requests.post('http://0.0.0.0:5000/search_user', data=payload)
     try:
         data = resp.json()
-        print(f"[{data['id']}] {data['name']}")
-    except requests.exceptions.JSONDecodeError:
-        if resp.status_code == 204:
-            print('No result')
+        if data:
+            print(f"[{data.get('id')}] {data.get('name')}")
         else:
-            print('Not a valid JSON')
+            print('No result')
+    except Exception:
+        print('Not a valid JSON')
